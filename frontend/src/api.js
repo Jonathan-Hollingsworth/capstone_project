@@ -71,25 +71,22 @@ class ShoplyApi {
     return res.cart;
   }
 
-  /** Update the amount of an item to a specified cart */
+  /** Update the amount of an item in a specified cart */
 
   static async updateAmountInCart(cartId, itemId, amount) {
-    let res = await this.request(`carts/${cartId}/items/${itemId}`, {amount}, 'patch');
-    return res.companies;
+    await this.request(`carts/${cartId}/items/${itemId}`, {amount}, 'patch');
   }
 
-  /** Remove an item to a specified cart */
+  /** Remove an item from a specified cart */
 
-  static async takeFromCart(cartId, itemId) {
-    let res = await this.request(`carts/${cartId}/items/${itemId}`, {}, 'delete');
-    return res.companies;
+  static async removeFromCart(cartId, itemId) {
+    await this.request(`carts/${cartId}/items/${itemId}`, {}, 'delete');
   }
 
-  /** Remove an item to a specified cart */
+  /** Imitate the checkout process for a specified cart */
 
   static async checkout(cartId) {
-    let res = await this.request(`carts/${cartId}/checkout`, {}, 'post');
-    return res.companies;
+    await this.request(`carts/${cartId}/checkout`, {}, 'post');
   }
 
   /** Get details on all items */
@@ -99,7 +96,7 @@ class ShoplyApi {
     return res.items;
   }
 
-  /** Get details on all jobs that include a specified name */
+  /** Get details on all items that include a specified name */
 
   static async getItemsByName(name) {
     let res = await this.request(`items`, {name});
@@ -135,21 +132,21 @@ class ShoplyApi {
     return res.user;
   }
 
-  /** View List */
+  /** View the wishlist of a specified user */
 
   static async viewList(username) {
     let res = await this.request(`users/${username}/wishlist`);
     return res.wishlist;
   }
 
-  /** Wishlist */
+  /** Add an item to the wishlist of a specified user */
 
   static async wishlist(username, itemId) {
     let res = await this.request(`users/${username}/wishlist/${itemId}`, {}, 'post');
     return res.wishlisted;
   }
 
-  /** Unlist */
+  /** Remove an item from the wishlist of a specified user */
 
   static async unlist(username, itemId) {
     let res = await this.request(`users/${username}/wishlist/${itemId}`, {}, 'delete');
