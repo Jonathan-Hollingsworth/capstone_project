@@ -28,7 +28,7 @@ function Checkout() {
 
     if (!user.username) {
       return (<Redirect to='/' />)
-    }
+    } //If user is currently not logged in
     
     async function handleChange(evt){
         const { name, value } = evt.target;

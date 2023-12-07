@@ -31,7 +31,7 @@ function App() {
           if (!user.carts[0]) {
             const newCart = await ShoplyApi.makeCart(username, "My Cart")
             user.carts.push({id: newCart.id, title: newCart.title})
-          }
+          } //Make a new cart for user if user has none
         }
       }
       getData();
@@ -94,13 +94,13 @@ function App() {
   }
 
 
-  /** Call the api to apply for a job */
+  /** Call the api to create a new cart */
   async function newCart(owner, title){
     const newCart = await ShoplyApi.makeCart(owner, title)
     user.carts.push({id: newCart.id, title: newCart.title}) //Update front-end user
   }
 
-  /** Call the api to apply for a job */
+  /** Call the api to rename a cart*/
   async function renameCart(id, title){
     ShoplyApi.renameCart(id ,title)
     for (const cart of user.carts) {
@@ -108,36 +108,36 @@ function App() {
     } //Update front-end user
   }
 
-  /** Call the api to add to wishlist */
+  /** Call the api to add to an item a wishlist */
   async function wishlistItem(username, itemId){
     await ShoplyApi.wishlist(username, itemId)
     const wishlist = await ShoplyApi.viewList(username)
     setWishlist(wishlist) //Update front-end wishlist
   }
 
-  /** Call the api to remove from wishlist */
+  /** Call the api to remove an item from a wishlist */
   async function unlist(username, itemId){
     await ShoplyApi.unlist(username, itemId)
     const wishlist = await ShoplyApi.viewList(username)
     setWishlist(wishlist) //Update front-end wishlist
   }
 
-  /** Call the api to remove from wishlist */
+  /** Call the api to add an item to a cart */
   async function addToCart(cartId, itemId, amount){
     await ShoplyApi.addToCart(cartId, itemId, amount)
   }
 
-  /** Call the api to remove from wishlist */
+  /** Call the api to remove an item from a cart */
   async function removeFromCart(cartId, itemId){
     await ShoplyApi.removeFromCart(cartId, itemId)
   }
 
-  /** Call the api to remove from wishlist */
+  /** Call the api to update the amount of an item in a cart */
   async function updateAmountInCart(cartId, itemId, amount){
     await ShoplyApi.updateAmountInCart(cartId, itemId, amount)
   }
 
-  /** Call the api to remove from wishlist */
+  /** Call the api to proceed to checkout for a cart */
   async function checkout(cartId){
     await ShoplyApi.checkout(cartId)
     for (let i = 0; i < user.carts.length; i++) {

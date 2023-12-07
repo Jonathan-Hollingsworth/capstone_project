@@ -17,7 +17,7 @@ function NavBar() {
                 <NavLink to='/login'>Login</NavLink>
             </div>
         )
-    }
+    } //If user is currently not logged in
 
     function handleLogout(evt) {
         evt.preventDefault();

@@ -34,7 +34,7 @@ function CartDetail() {
 
     if (!user.username) {
       return (<Redirect to='/' />)
-    }
+    } //If user is currently not logged in
 
     return (
         <div>

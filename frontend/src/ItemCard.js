@@ -42,7 +42,7 @@ function ItemCard({item, cart}) {
     }
 
     for (const wishlisted of wishlist) {
-        if (wishlisted.id === item.id) {
+        if (wishlisted.id === item.id) { //If user has wishlisted this item
             if (!item.inStock) {
                 return (
                     <div className="card">

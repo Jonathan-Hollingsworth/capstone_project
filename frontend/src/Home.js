@@ -11,7 +11,7 @@ function Home() {
                 <h2>Welcome {user.username}</h2>
             </div>
         )
-    }
+    } //If user is currently logged in
 
     return (
         <div>

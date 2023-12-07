@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
-import { MethodContext } from "./Context";
+import { useHistory, Redirect } from "react-router-dom";
+import { MethodContext, DataContext } from "./Context";
 
 function UserSignupForm() {
     const {register} = useContext(MethodContext)
+    const {user} = useContext(DataContext)
     const INITIAL_STATE = {
         username: '',
         password: '',
@@ -29,6 +30,10 @@ function UserSignupForm() {
         setFormData(INITIAL_STATE);
         history.push("/")
     };
+
+    if(user.username){
+        return (<Redirect to='/' />)
+    } //If user is currently logged in
 
     return (
         <div>
