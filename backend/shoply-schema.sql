@@ -1,0 +1,41 @@
+CREATE TABLE users (
+  username VARCHAR(30) PRIMARY KEY,
+  password TEXT NOT NULL,
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  email TEXT NOT NULL CHECK (position('@' IN email) > 1),
+  is_admin BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE carts (
+  id SERIAL PRIMARY KEY,
+  owner VARCHAR(30) REFERENCES users ON DELETE CASCADE,
+  title VARCHAR(30) NOT NULL,
+  in_use BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE items (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  value DECIMAL NOT NULL,
+  in_stock BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE wishlisted (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(30) REFERENCES users ON DELETE CASCADE,
+  item_id INTEGER REFERENCES items ON DELETE CASCADE
+);
+
+CREATE TABLE carts_items (
+  cart_id INTEGER REFERENCES carts ON DELETE CASCADE,
+  item_id INTEGER REFERENCES items ON DELETE CASCADE,
+  amount INTEGER NOT NULL,
+  total_val DECIMAL NOT NULL,
+  PRIMARY KEY (cart_id, item_id)
+);
+
+CREATE TABLE purchases (
+  cart_id INTEGER PRIMARY KEY REFERENCES carts ON DELETE CASCADE,
+  total_val DECIMAL NOT NULL
+);

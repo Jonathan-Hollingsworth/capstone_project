@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://cart.com/cartNew.schema.json",
+    "type": "object",
+    "properties": {
+      "owner": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 30
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 30
+      },
+      "inUse": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "owner",
+      "title"
+    ]
+  }
