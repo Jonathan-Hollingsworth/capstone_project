@@ -5,8 +5,9 @@ import ShoplyApi from "./api";
 import ItemCard from "./ItemCard";
 import NewCartForm from "./NewCartForm";
 import RenameCartForm from "./RenameCartForm";
+import "./CartSelect.css"
 
-function Checkout() {
+function CartDetail() {
     const {user} = useContext(DataContext)
     const INITIAL_STATE = {
         cartId: user.carts ? user.carts[0].id : 1 //prevents errors
@@ -41,11 +42,11 @@ function Checkout() {
             <hr />
             <label htmlFor="cartId">Which Cart?</label>
             <select name="cartId" id="cartId" onChange={handleChange}>
-                <option value={0}>Please choose a Cart</option>
                 {user.carts.map(cart => (
                     <option key={cart.id} value={cart.id}>{cart.title}</option>
                 ))}
             </select>
+            <br />
             {currentCart.items.map(item => (
                 <ItemCard key={item.id} item={item} cart={currentCart}/>
             ))}
@@ -55,4 +56,4 @@ function Checkout() {
     )
 }
 
-export default Checkout;
+export default CartDetail;

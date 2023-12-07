@@ -3,6 +3,7 @@ import {useHistory} from "react-router-dom"
 import { DataContext, MethodContext } from "./Context";
 import AddToCartForm from "./AddToCartForm";
 import UpdateAmountForm from "./UpdateAmountForm";
+import "./Card.css"
 
 function ItemCard({item, cart}) {
     const {user, wishlist} = useContext(DataContext)
@@ -42,11 +43,26 @@ function ItemCard({item, cart}) {
 
     for (const wishlisted of wishlist) {
         if (wishlisted.id === item.id) {
+            if (!item.inStock) {
+                return (
+                    <div className="card">
+                            <b>{item.name}</b>
+                            <br />
+                            <i>In Your Wishlist</i>
+                            <br />
+                            <i>Cost: ${item.value}</i>
+                            <br />
+                            <button onClick={handleUnlist}>Unlist</button>
+                            <br />
+                            <b>This item is currently not in stock</b>
+                    </div>
+                )
+            }
             return (
                 <div className="card">
                         <b>{item.name}</b>
                         <br />
-                        <p>In Your Wishlist</p>
+                        <i>In Your Wishlist</i>
                         <br />
                         <i>Cost: ${item.value}</i>
                         <br />

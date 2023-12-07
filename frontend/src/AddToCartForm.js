@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { MethodContext, DataContext } from "./Context";
+import "./CartSelect.css"
 
 function AddToCartForm({itemId}) {
     const {addToCart} = useContext(MethodContext)
@@ -25,7 +26,7 @@ function AddToCartForm({itemId}) {
         evt.preventDefault();
         addToCart(formData.cartId, itemId, formData.amount);
         setFormData(INITIAL_STATE);
-        history.push("/items")
+        history.push("/cart")
     };
 
     return (
@@ -33,7 +34,6 @@ function AddToCartForm({itemId}) {
             <form onSubmit={handleSubmit}>
                 <label htmlFor="cartId">Which Cart?</label>
                 <select name="cartId" id="cartId" onChange={handleChange}>
-                    <option value={0}>Please choose a Cart</option>
                     {user.carts.map(cart => (
                         <option key={cart.id} value={cart.id}>{cart.title}</option>
                     ))}

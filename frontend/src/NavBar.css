@@ -1,0 +1,23 @@
+.navbar {
+    border-bottom: 3px solid black;
+    padding-bottom: 4px;
+}
+
+.navbar a {
+    padding: 0 6px;
+    color: black;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-shadow: #666666 1px 0 7px;
+}
+
+.navbar a.active {
+    text-shadow: #666666 1px 0 7px;
+    color: gray;
+}
+
+.navbar a.logout {
+    color: crimson;
+}

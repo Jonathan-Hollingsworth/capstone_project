@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink, useHistory } from 'react-router-dom'
 import {DataContext, MethodContext} from "./Context";
+import "./NavBar.css"
 
 function NavBar() {
 
@@ -27,12 +28,14 @@ function NavBar() {
 
     return (
         <div className="navbar">
-            <NavLink exact to='/'>Home</NavLink>
-            <NavLink to='/items'>Items</NavLink>
-            <NavLink to='/cart'>Your Carts</NavLink>
-            <NavLink to='/checkout'>Checkout</NavLink>
-            <NavLink to='/profile'>Profile</NavLink>
-            <NavLink exact to='/logout' onClick={handleLogout}>Logout</NavLink>
+            <NavLink exact to='/'><b>Home</b></NavLink>
+            <NavLink to='/items'><b>Items</b></NavLink>
+            <NavLink to='/cart'><b>Your Carts</b></NavLink>
+            <NavLink to='/checkout'><b>Checkout</b></NavLink>
+            <NavLink to='/profile'><b>Profile</b></NavLink>
+            <NavLink className='logout' exact to='/logout' onClick={handleLogout}>
+                <b>Logout</b>
+            </NavLink>
         </div>
     )
 }

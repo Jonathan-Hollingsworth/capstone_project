@@ -5,6 +5,7 @@ import useLocalStorage from "./Hooks";
 import Routes from './Routes';
 import {DataContext, MethodContext} from "./Context";
 import NavBar from "./NavBar";
+import "./App.css"
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);

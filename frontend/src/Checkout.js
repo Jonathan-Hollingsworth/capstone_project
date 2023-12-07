@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { useHistory, Redirect } from "react-router-dom";
 import { MethodContext, DataContext } from "./Context";
 import ShoplyApi from "./api";
+import "./CartSelect.css"
 
 function Checkout() {
     const {checkout} = useContext(MethodContext)
@@ -51,7 +52,6 @@ function Checkout() {
             <form onSubmit={handleSubmit}>
                 <label htmlFor="cartId">Which Cart?</label>
                 <select name="cartId" id="cartId" onChange={handleChange}>
-                    <option value={0}>Please choose a Cart</option>
                     {user.carts.map(cart => (
                         <option key={cart.id} value={cart.id}>{cart.title}</option>
                     ))}
