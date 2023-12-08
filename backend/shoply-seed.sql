@@ -18,5 +18,7 @@ INSERT INTO carts (owner, title)
 VALUES ('testuser', 'Test Cart'), ('testadmin', 'Admin Cart');
 
 INSERT INTO items (name, value, in_stock)
-VALUES ('Test Item', 3.20, TRUE), ('Unstocked Item', 0.00, FALSE),
-       ('Pricey Item', 70.50, TRUE);
+VALUES ('Test Item', 3.20, TRUE),
+       ('Unstocked Item', 0.00, FALSE),
+       ('Pricey Item', 70.50, TRUE), 
+       ('Exhibit-A: Putting Your Best Foot Forward', 35.00, TRUE);
