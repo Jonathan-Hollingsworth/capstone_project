@@ -12,6 +12,9 @@ This full-stack application is meant to replicate the functionality of an online
 - Signup/Login
 - Adding/Removing items to carts
 - Adding new items (Backend Only)
+  - You will want to go to `/auth/token` with `{"username": "testadmin", "password": "********"}` in the request body
+  - You will recieve a token that you must add to your request header like so `Authorization: "Bearer {token}"`
+  - Make a post request to `/items` with your item in the request body (`{name, value, inStock}`)
 - Updating user data
 - Creating additional carts
 - Renaming your carts
