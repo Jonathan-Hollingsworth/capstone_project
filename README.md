@@ -21,7 +21,7 @@ This full-stack application is meant to replicate the functionality of an online
 ### Tests:
 
 - Backend: Tests are in the same folder as the item they are testing (Run with `npm test` or `jest -i --DetectOpenHandles`)
-- Frontend: I currently do not have the time or experience to properly write tests for the frontend of this application (They would have been ran with `npm test` of `react-scripts test`)
+- Frontend: I currently do not have the time or experience to properly write tests for the frontend of this application (They would have been ran with `npm test` or `react-scripts test`)
 > Make sure you download the dependencies with `npm install`
 
 ### API:
@@ -33,7 +33,7 @@ The API was created by doing the following:
 3. Create endpoints
    - Make sure to create an end point that would allow data to be added to the database
 4. Allow frontend to connect with API/Backend
-You can see the Schema [here](https://drawsql.app/teams/empty-team/diagrams/shoply)
+> You can see the Schema that was used [here](https://drawsql.app/teams/empty-team/diagrams/shoply)
 
 ### User Flow:
 
